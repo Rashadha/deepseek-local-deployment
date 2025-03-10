@@ -1,0 +1,428 @@
+PS C:\Users\rimsa\OneDrive\Desktop\sperateddeepseek> python question_answering.py
+>> 
+Enter the path to the PDF file: C:\banking circular cbsl\Banking_Act_Directions_No_5_of_2024.pdf  
+C:\Users\rimsa\OneDrive\Desktop\sperateddeepseek\document_processing.py:16: LangChainDeprecationWarning: The class `HuggingFaceBgeEmbeddings` was deprecated in LangChain 0.2.2 and will be removed in 1.0. An updated version of the class exists in the :class:`~langchain-huggingface package and should be used instead. To use it run `pip install -U :class:`~langchain-huggingface` and import as `from :class:`~langchain_huggingface import HuggingFaceEmbeddings``.
+  text_splitter = SemanticChunker(HuggingFaceBgeEmbeddings())
+C:\Users\rimsa\OneDrive\Desktop\sperateddeepseek\document_processing.py:16: LangChainDeprecationWarning: Default values for HuggingFaceBgeEmbeddings.model_name were deprecated in LangChain 0.2.5 and will be removed in 0.4.0. Explicitly pass a model_name to the HuggingFaceBgeEmbeddings constructor instead.
+  text_splitter = SemanticChunker(HuggingFaceBgeEmbeddings())
+C:\Users\rimsa\OneDrive\Desktop\sperateddeepseek\document_processing.py:20: LangChainDeprecationWarning: Default values for HuggingFaceBgeEmbeddings.model_name were deprecated in LangChain 0.2.5 and will be removed in 0.4.0. Explicitly pass a model_name to the HuggingFaceBgeEmbeddings constructor instead.
+  embedder = HuggingFaceBgeEmbeddings()
+C:\Users\rimsa\OneDrive\Desktop\sperateddeepseek\question_answering.py:18: LangChainDeprecationWarning: The class `Ollama` was deprecated in LangChain 0.3.1 and will be removed in 1.0.0. An updated version of the class exists in the :class:`~langchain-ollama package and should be used instead. To use it run `pip install -U :class:`~langchain-ollama` and import as `from :class:`~langchain_ollama import OllamaLLM``.
+  llm = Ollama(model="deepseek-r1:1.5b")
+C:\Users\rimsa\OneDrive\Desktop\sperateddeepseek\question_answering.py:30: LangChainDeprecationWarning: The class `LLMChain` was deprecated in LangChain 0.1.17 and will be removed in 1.0. Use :meth:`~RunnableSequence, e.g., `prompt | llm`` instead.
+  llm_chain = LLMChain(llm=llm, prompt=QA_PROMPT)
+C:\Users\rimsa\OneDrive\Desktop\sperateddeepseek\question_answering.py:31: LangChainDeprecationWarning: This class is deprecated. Use the `create_stuff_documents_chain` constructor instead. See migration guide here: https://python.langchain.com/docs/versions/migrating_chains/stuff_docs_chain/
+  combine_documents_chain = StuffDocumentsChain(llm_chain=llm_chain, document_variable_name="context")
+C:\Users\rimsa\OneDrive\Desktop\sperateddeepseek\question_answering.py:34: LangChainDeprecationWarning: This class is deprecated. Use the `create_retrieval_chain` constructor instead. See migration guide here: https://python.langchain.com/docs/versions/migrating_chains/retrieval_qa/
+  qa_pipeline = RetrievalQA(combine_documents_chain=combine_documents_chain, retriever=retriever)
+
+Ask a question about the document (or type 'exit' to quit): How often must the Board of Directors meet under the Banking Act Directions?
+C:\Users\rimsa\OneDrive\Desktop\sperateddeepseek\question_answering.py:54: LangChainDeprecationWarning: The method `Chain.__call__` was deprecated in langchain 0.1.0 and will be removed in 1.0. Use :meth:`~invoke` instead.
+  response = qa_pipeline(question)['result']
+
+Response:
+ <think>
+Okay, so I need to figure out how often the Board of Directors meets under the Banking Act Directions. Let me read through the context provided carefully.
+
+Looking at the text, it starts with "Appointing The Board" and then moves on to describe what a Board Meeting entails. It says that Board meetings are held approximately monthly intervals. So every month, there's a Board meeting. They also mention that these meetings should be held at least twelve times a year, which makes sense because if you're monthly, 12 times per year would cover the entire year.      
+
+There's also some information about how meetings are conducted: they need written resolutions or papers to circulate, and the Board can attend virtually with others' consent, but there should be enough involvement from directors. For other meetings, reasonable notice is given, which I think means if a meeting isn't immediate, at least 7 days before.
+
+But specifically, for the regular Board meetings, it's stated that they are held monthly. So each month, these meetings occur. Therefore, under the Banking Act Directions, the Board must meet approximately monthly, at least twelve times a year.  
+</think>
+
+Under the Banking Act Directions, the Board of Directors meets approximately every month. These meetings occur at least twice a year, ensuring regular coverage throughout the fiscal year.
+
+**Answer:** The Board must meet approximately monthly, with at least twelve meetings per year.
+
+Ask a question about the document (or type 'exit' to quit): What are the key responsibilities of the Chairperson of a licensed bank?
+
+Response:
+ <think>
+Okay, so I need to figure out the key responsibilities of the Chairperson as outlined in the provided context. Let me go through each section carefully.
+
+First, looking at the "Responsibilities of The Chairperson" part under point 5, it lists eight specific tasks:
+
+a) Providing leadership for the Board and ensuring effective operation.
+b) Discussing key issues timely with the Board.
+c) Approving agenda preparation, especially considering other directors' wishes.  
+d) Making sure directors are properly informed.
+e) Encouraging all directors to contribute actively.
+f) Facilitating non-executive directors' participation.
+g) Encouraging critical discussions at meetings and allowing dissent expression.  
+h) Not engaging in supervision of key personnel or others.
+
+Then, under point 9 "Disclosures," there's another set of responsibilities:       
+
+a) Ensuring timely and adequate public disclosure as per standards.
+b) Preparing annual financial statements quarterly.
+c) Providing updates to the Board for changes in strategy, risks, etc.
+
+Wait, but the user asked specifically about the Chairperson's key responsibilities. So focusing back on points 5 and 9.
+
+Under point 5, the chairperson is responsible for:
+- Leading the board
+- Discussing issues quickly
+- Reviewing agendas considering other directors' wishes
+- Making sure directors are informed
+- Encouraging all directors to contribute
+- Facilitating non-executive participation
+- Encouraging discussions and dissent
+- Not supervising key personnel
+
+Under point 9, for disclosures:
+- Ensuring timely and adequate disclosure as per standards.
+- Preparing financial statements regularly.
+- Providing updates to the board.
+
+But since the question is about the chairperson's responsibilities, it's clear from points 5 that they handle all of these. So putting it together, the key responsibilities are leading the board, managing agenda reviews, ensuring informed directors, encouraging contributions, facilitating non-executive roles, and preventing supervision.
+
+Wait, but looking again, in point 5, under "d), ensure that all directors are properly briefed on issues," which covers informed directors. Point f) talks about facilitating non-executive participation, which is more about meeting the role expectations beyond regular management.
+
+I think I might have covered everything under points 5 and 9 for the Chairperson's responsibilities.
+</think>
+
+The key responsibilities of the Chairperson of a licensed bank, as outlined in the provided context, are:
+
+1. **Leading the Board**: The Chairperson is responsible for ensuring effective operation of the Board by providing leadership.
+
+2. **Timely Issue Management**: They ensure that key and appropriate issues are discussed promptly at the Board meetings.
+
+3. **Agenda Review**: The Chairperson reviews and approves board agendas, taking into account directives from other directors, to maintain timely discussions.      
+
+4. **Board Informedness**: Ensuring that all relevant directors are properly informed about critical matters through appropriate communication channels.
+
+5. **Encouraging Contributions**: Encouraging all directors, including non-executive roles, to contribute actively and take an active role in the Board's affairs.  
+
+6. **Facilitating Non-Executive Roles**: Facilitating participation from non-executive directors, promoting their involvement within the board structure.
+
+7. **Preventing Supervision**: The Chairperson does not engage in activities that involve supervision of key management personnel or other executives; they maintain strict communication with stakeholders without exceeding authority limits.       
+
+8. **Regulatory Compliance**: Ensuring compliance with applicable laws and regulations, including maintaining effective communication with shareholders to ensure their views are properly communicated to the Board.
+
+Ask a question about the document (or type 'exit' to quit): What are the key elements of a whistleblowing policy required under the Banking Act Directions?
+
+Response:
+ <think>
+Okay, so I'm trying to answer this question about the key elements of a whistleblowing policy required under the Banking Act Directions. The user has provided a lot of context and some specific questions, but I need to focus on understanding what exactly is needed for such a policy.
+
+First, looking at the provided context, there are several sections under different headings like "t," "u," etc., which discuss various aspects of banking culture, oversight, and policies. The key elements of a whistleblowing policy seem to be covered in points (i), (ii), (iii), and (iv) under section "v."
+
+So breaking it down:
+
+1. **Escalation Clarity**: What steps must employees take when they raise concerns?
+2. **Investigation Procedures**: How the bank handles legitimate issues reported by employees.
+3. **Protection Anonymity**: Ensuring that whistleblowers don't get caught and how this is ensured.
+4. **Alternatives for Whistleblowing**: If a whistleblower is affected, what options are available.
+
+In the context provided, these points are detailed in sections (i), (ii), (iii), and (iv). Each of these has specific subpoints that outline exactly what should be included. For example, point (i) mentions who can escalate concerns within the bank, who is involved in investigations, how to protect employees' anonymity, and alternative reporting methods.
+
+Therefore, compiling all this information into a coherent policy would require each of these elements to be clearly defined and specified under the appropriate headings as per the Banking Act Directions. This ensures that anyone involved in implementing such a policy understands the structure and procedures needed for effective whistleblowing.
+</think>
+
+The key elements of a whistleblowing policy required under the Banking Act Directions are:
+
+1. **Escalation Clarity**:
+   - Employees must take specific actions to communicate confidential concerns within the bank.
+   - This includes defining roles and processes for identifying whom to escalate concerns and who handles investigations.
+
+2. **Investigation Procedures**:
+   - Outline methods and processes for conducting legitimate inquiries raised by employees.
+   - Include steps for investigating material concerns, including procedures to safeguard employee anonymity.
+
+3. **Protection Anonymity**:
+   - Provide clear guidelines on how whistleblowers can report concerns without risk of reprisal.
+   - Detail the bank's policies on protecting employees' anonymity during investigations and reporting.
+
+4. **Alternatives for Whistleblowing**:
+   - Offer alternative avenues for communication when external repercussions are not feasible.
+   - Include options like informal channels or public meetings where appropriate. 
+
+These elements are encapsulated under headings such as (i) Escalation Clarity, (ii) Investigation Procedures, (iii) Protection Anonymity, and (iv) Alternatives for Whistleblowing in the Banking Act Directions.
+
+Ask a question about the document (or type 'exit' to quit): What is a Risk Appetite Statement, and why is it important?
+
+Response:
+ <think>
+Alright, I need to figure out what a Risk Appetite Statement is and why it's important based on the context provided in the question about bank risk management.    
+
+First, looking at the text. It says that a Risk Appetite Statement is aligned with the bank’s strategic, capital, and financial plans. This makes sense because a statement outlines the bank's long-term vision and goals regarding risk management. It must be crucial for guiding how risks are managed, ensuring they align with the bank's overall strategy.
+
+Then, it mentions that a Risk Appetite Statement also outlines the actions to be taken when the risk appetite limits are breached, including disciplinary actions for excessive risk-taking, escalation procedures, and notifications to the Board. This shows that having a clear statement helps handle crises effectively by setting boundaries and providing guidance on appropriate responses.
+
+The context also talks about regular updates from the Integrated Risk Management Committee and communication with CRO, stakeholders, etc., which indicates that maintaining such statements is essential for transparency and alignment across the organization.
+
+In summary, the Risk Appetite Statement is a strategic document guiding risk management practices. It sets clear boundaries and provides actionable steps when risks exceed acceptable levels. This ensures the bank's risk management aligns with its broader strategy and maintains oversight by key stakeholders.
+</think>
+
+A **Risk Appetite Statement** is a strategic document that outlines the bank's long-term vision and goals regarding risk management, ensuring it aligns with the bank’s broader strategy, capital, and financial plans. It serves as a guide for how risks are managed, setting clear boundaries and providing actionable steps when risks exceed acceptable levels. This ensures the bank's risk management is aligned with its strategic objectives, promoting effective risk management processes that contribute to overall financial stability and alignment with key stakeholders, including the Board and other relevant functions.
+
+Ask a question about the document (or type 'exit' to quit): What disclosures must be included in the Annual Corporate Governance Report of a licensed bank?
+
+Response:
+ <think>
+Alright, so I have to figure out what disclosures must be included in the Annual Corporate Governance Report (ACGR) of a licensed bank based on the given context. Let me start by carefully reading through the context provided.
+
+First, looking at point f and g, it mentions that the bank is responsible for delegating duties to staff and overseeing such delegated duties. It also states that a management structure must be established with accountability and transparency. So, the ACGR likely needs to reflect these responsibilities and structures.
+
+Points h through i talk about remedial or disciplinary actions if breaches are identified. The bank should regularly provide updates to the Board and its sub-committees with relevant information. Changes in business strategy (i), risk strategy/risk appetite (ii), internal control failures (iii), legal or regulatory concerns (iv), and changes in director of supervision (v) require disclosures.
+
+Looking at points j, k, and l, there are specific requirements for the ACGR to comply with disclosure laws. These include adequate public disclosures including key performance indicators, capital adequacy, liquidity, business concentrations, etc. The Board must ensure annual audited financial statements are prepared and published in accordance with prescribed formats.
+
+Point h lists specific sub-disclosures like external auditor certification, board composition, relationships among key personnel, compliance measures taken to rectify non-compliances, and regulatory concerns. Point i mentions a report setting out compliance measures and actions taken. Point j is about public disclosure of bank risks, including audited financial statements, compliance status, risk management communication from the director, and any administrative fines imposed by the Central Bank.
+
+Point k deals with special payments or benefits made to executives during employment termination or retirement. So, I think these need to be included in the ACGR as well.
+
+Putting this all together, the Annual Corporate Governance Report must include:   
+1. Adequate and timely public disclosures including key performance indicators.   
+2. The annual financial statements.
+3. The board composition with their relationships.
+4. Compliance with internal controls measures taken.
+5. Regulatory and supervisory concerns addressed by the bank.
+6. Special payments to executives during retirement or termination.
+
+I should structure this clearly, making sure each point from points h through k is covered as they are listed in the context.
+</think>
+
+The Annual Corporate Governance Report (ACGR) of a licensed bank must include the following key components based on the provided context:
+
+1. ** Adequate and Timely Public Disclosures**: The ACGR should ensure that relevant information, including key performance indicators, capital adequacy, liquidity, business concentrations, and other financial metrics, are disclosed to the public in a timely manner.
+
+2. ** Annual Financial Statements**: The annual audited financial statements must be prepared and published according to prescribed formats to maintain transparency and clarity.
+
+3. ** Board Composition and Relationships**: A detailed report should outline the composition of the board, including chairpeople, executive directors, non-executive directors, and independent non-executive directors. This report should also document relationships among these key personnel, if any, such as financial, business, family, or material relationships.
+
+4. ** Compliance with Internal Control Mechanisms**: The ACGR must include measures taken to ensure compliance with internal control requirements, including remedial actions taken after identifying material non-compliance.
+
+5. ** Regulatory and Supervisory Concerns**: The report should address regulatory and supervisory concerns, such as any administrative fines imposed by the Central Bank of Sri Lanka or communicate internally about bank risks and risk management practices aligned with the directions set by the Central Bank.
+
+6. ** Special Payments to Key Management Personnel**: Information regarding special payments made to directors, CEOs, and key management personnel during retirement or employment termination should be included in the report.
+
+These components ensure that the ACGR adheres to both internal and external regulations while maintaining transparency and accountability for the bank's governance structure.
+
+Ask a question about the document (or type 'exit' to quit): What is the purpose of issuing these Banking Act Directions?
+
+Response:
+ <think>
+Okay, so I need to figure out the answer to the question about the purpose of issuing these Banking Act Directions. Let me look through the context provided.       
+
+First, the document is from the Central Bank of Sri Lanka and it's called Banking ACT DIRECTIONS No. 05 of 2024. It mentions that they are issuing directions to licensed banks regarding corporate governance and ensuring the stability of the banking sector.
+
+The context goes into more detail about empowerment through sections 1 and 2, which means they're giving authority to these banks to handle certain business aspects responsibly. They also talk about scopes including committees composition, reporting lines for financial reporting, and compliance with regulatory requirements.   
+
+Looking at what it says, it's clear that the main points are about enhancing corporate governance processes, ensuring soundness of the banking system, empowerment through specific sections, scope of these directions, and compliance with regulations.
+
+So, putting this together, the purpose seems to be to strengthen corporate governance within the licensed banks, promote financial stability, and ensure that these guidelines are applied uniformly across all licensed banks.
+</think>
+
+The purpose of issuing these Banking Act Directions is to enhance corporate governance processes within licensed commercial and specialized banks in Sri Lanka, ensuring the stability of the banking sector and the financial system. The Central Bank empowers these banks to conduct business responsibly and accountable, covering aspects from empowerment through specific sections to uniform compliance with regulatory requirements.
+
+Ask a question about the document (or type 'exit' to quit): Under which legal provision is the Central Bank of Sri Lanka empowered to issue Directions to licensed banks?
+
+Response:
+ <think>
+Alright, let me try to figure out this question. The user has given a lot of context about the Central Bank of Sri Lanka's empowerment under different sections of the Banking Act and other regulations. They've also provided specific questions, including one that's exactly what they're asking for here.
+
+First, I need to read through the provided context carefully to find where it mentions the empowered sections regarding directions. Let me go step by step.
+
+1. Looking at Section 46(1) of the Banking Act, which is amended in 1988 as per no. 30 of that act. The context here talks about Central Bank empowering them to issue Directions regarding commercial banks' business operations.
+
+2. Then there's Section 76J(1), also from 1988. It mentions they're empowered to issue Directions to specialized banks or any category, similar to the first section but specific to specialized.
+
+3. In the Scope of sections 1-4, they list that these Directions apply to all licensed banks and mention regulatory requirements in Schedules I to IV. That seems like a broader scope for how the directions are used beyond just business operations.
+
+Now, the question is about which legal provision empowers the Central Bank to issue Directions. Looking back at sections 1.1 and 2.1, both talk about empowerment based on specific provisions of the Banking Act. Specifically, section 7.3 and 7.4 seem relevant because they outline what happens when accommodations are granted.   
+
+Section 7.3 says that the Central Bank must ensure compliance with Sections 47 and 76K regarding accommodation for related parties. Section 7.4 further specifies conditions under which these accommodations can be granted, including security checks and time periods for settling debts.
+
+So putting it all together, I think the answer is section 1.2 of the Banking Act because it's about empowered directions to commercial banks, but looking at the context provided by the user, the actual empowerment comes from sections within the central bank that handle specific matters. Since the Directions are applied across various contexts including banking and corporate governance, I'm a bit confused.  
+
+Wait, no—the user's main query is under which legal provision the Central Bank issues these directions. The answer must be section 1.2 because it's about the empowered issuance of directions to commercial banks as per amended sections. So even though there are other sections in the document, the specific empowerment tied to the provided context is within the sections numbered 1.1 and 1.2.
+
+I think I've got it now. The Central Bank is empowered based on section 1.2 under the Banking Act, which ensures these directions apply broadly across different contexts like banking and corporate governance.
+</think>
+
+Under the Central Bank's empowerment of issuing Directions to licensed banks, the relevant legal provision is **Section 1.2** of the Banking Act from 1988, amended in 1988 as no. 30. This section establishes their authority to issue directions based on Section 46(1) and applies to commercial banking operations.
+
+**Answer:** The Central Bank of Sri Lanka is empowered to issue Directions to licensed banks under **Section 1.2** of the Banking Act from 1988, amended in 1988 as no. 30.
+
+Ask a question about the document (or type 'exit' to quit): What are the primary responsibilities of the Board of Directors under the Banking Act Directions?
+
+Response:
+ <think>
+Okay, so I'm trying to figure out what the question is asking and how to answer it. The user provided a context related to the responsibilities of a Chairperson for a bank and some regulatory requirements on corporate governance for licensed banks. Then they gave a specific question about the primary responsibilities of the Board of Directors under the Banking Act Directions.
+
+First, I need to understand what exactly the user is asking. They want me to use the given context to answer the document-based question, which asks specifically about the primary responsibilities of the Board under the Banking Act Directions. Looking back at the provided context, the user includes a section titled "Regulatory Requirements on Corporate Governance for Licensed Banks," and within that, there's a detailed list of responsibilities for the Board.
+
+I also see another part of the text that discusses the Chairperson's responsibilities (items 5.3 to h), but those are more about the Chairperson rather than the Board itself. The question is directly asking about the Board's responsibilities as outlined in the regulatory requirements section, which starts with "1.1 Responsibilities of The Board."
+
+So, I need to extract what each of these points says and list them out. Let me go through each point one by one:
+
+1. 1.1 Responsibilities of The Board: This is where the Board's duties are defined in terms of "duty of care" and "duty of loyalty," making sure they work together for the bank's best interests.
+
+2. 1.1.1 a) Approve and oversee strategic objectives and corporate values.        
+3. 1.1.2 b) Approve overall business strategy including risk management with measurable goals over three years.
+4. 1.1.3 c) Inculcate a strong risk governance culture by identifying principal risks, establishing responsibilities for business lines of defense (a. business lines, b. CRO position).
+5. 1.2 Responsibilities: This is about ensuring bank operations are safe and sound, managing risks, compliance with laws.
+6. 1.3 Responsibilities related to the integrated risk management framework mentioned in Directions No. 07, which includes setting up policies, analyzing material risks, using stress testing, and effective risk control.
+
+Wait, looking back at the user's question, I think they might have been referring to a different section or maybe only part of it. The exact lines are numbered as 1.3. However, in the context provided, under 1.1.4, there's another point about ensuring that the Bank adheres to laws and regulations. But since the question is about the Board's responsibilities directly under the Banking Act Directions, I think the key points are:
+
+- The Board ensures safe and sound banking practices.
+- They manage risks effectively and comply with laws.
+- They oversee strategic objectives for long-term goals.
+
+So, putting it all together, the primary responsibilities of the Board as per the Banking Act Directions include ensuring safe practices, managing risks, and overseeing strategic objectives over three years. I should structure this into bullet points for clarity.
+
+I also need to make sure that each responsibility is clear and directly from the context. For example, under 1.2. b), it says "Approve overall business strategy of the bank, including the overall risk policy and risk management procedures with measurable goals, at least for the next three years." That's a key point about managing risks.
+
+Additionally, since there are specific subsections like 1.3, but those are more detailed responsibilities rather than the primary ones requested by the question.   
+
+I should also consider if any other points are relevant or necessary. The user might not need subsections unless specified, so I'll focus on the main areas: ensuring safe operations, managing risks, overseeing strategic objectives.
+
+Let me make sure each point is in its own bullet and that they all align with what the Board does under the Banking Act Directions.
+</think>
+
+The primary responsibilities of the Board of Directors, as outlined in the Banking Act Directions, are:
+
+1. **Ensuring Safe and Sound Banking Practices**: The Board ensures that the bank operates safely and adheres to applicable laws and regulations.
+
+2. **Managing Risks Effectively**: The Board manages risks through comprehensive risk governance, including identifying principal risks and developing systems to control them.
+
+3. **Overseying Strategic Objectives**: The Board oversees long-term strategic objectives for the bank's business goals, particularly ensuring these objectives are achieved within measurable timelines of three years.
+
+4. **Compliance with Laws and Regulations**: The Board ensures that all decisions and actions are made in the interests of the bank's depositors, creditors, and other stakeholders, as stipulated by applicable laws.
+
+5. **Risk Management and Compliance (if applicable)**: This may include managing material risks and ensuring compliance with risk management procedures within the specified timeframe.
+
+These responsibilities collectively aim to maintain the bank's operational integrity and stability while aligning with legal and regulatory requirements.
+
+Ask a question about the document (or type 'exit' to quit): What do the terms "duty of care" and "duty of loyalty" mean in the context of the Banking Act Directions?
+
+Response:
+ <think>
+Alright, I need to figure out what the terms "duty of care" and "duty of loyalty" mean in the context of the Banking Act Directions. Let me go through each section one by one.
+
+First, under 1.1, it's about the "Duty of care." It says that this duty is a responsibility of a director of a licensed bank to act with skill, care, prudence, and thoroughness in performing their duties as a bank. So, it sounds like they have to be cautious and considerate when making decisions.
+
+Next, 1.2 talks about "Duty of loyalty." This is the board's responsibility, acting in good faith for the bank. It probably means that the board must maintain ethical standards and act appropriately for the benefit of the bank, considering other directors' interests too.
+
+I should check if these definitions fit together. The board covers all directors, including non-executive ones, so both duty of care and loyalty apply to the entire board. That makes sense because they're both about maintaining the integrity of the banking operations.
+
+Wait, I should make sure that "duty of care" is specific to the director's actions, whereas "duty of loyalty" is more about the board's overall ethical standards. Yes, that seems right. The directors have to be cautious, and the board has to maintain good behavior as well.
+
+I think I got it now. Both terms apply to the individuals within the banking roles but cover different aspects—care for their own actions and responsibility in the broader board's decisions.
+</think>
+
+In the context of the Banking Act Directions:
+
+- **Duty of Care** refers to the director's responsibility to act with skill, care, prudence, and thoroughness when performing duties as a licensed bank. It emphasizes cautious and ethical behavior during decision-making.
+
+- **Duty of Loyalty** pertains to the board of directors, which must act in good faith for the bank's benefit. This includes maintaining ethical standards and considering other directors' interests when making decisions.
+
+These terms apply within the scope of directors and the broader board, respectively, reflecting both individual accountability and collective responsibility.       
+
+Ask a question about the document (or type 'exit' to quit): What is the role of the Board in business continuity and disaster recovery planning?
+
+Response:
+ <think>
+Okay, so I need to figure out the role of the Board in business continuity and disaster recovery planning based on the context provided. Let me read through the information carefully.
+
+First, the context mentions that the Board is ultimately responsible for overseeing everything related to a bank's governance framework and ensuring its operations are compliant with laws and regulations. It breaks down responsibilities into several points.
+
+Looking at part 3.1.1, it says the Board exercises "duty of care" and "duty of loyalty." That makes me think the Board is responsible for safeguarding the bank's safety and soundness by ensuring that the bank's strategies are followed and that operations align with safe banking practices.
+
+In part 25, there's a section on business continuity and disaster recovery plans. It says the Bank has to implement these plans to ensure financial stability, resilience, and preserve critical services during any disruptions. Then it mentions that the Board oversees this approach, meaning the Board ensures that the implementation of business continuity happens properly.
+
+So putting this together, the Board's role in business continuity and disaster recovery planning is to oversee how the Bank maintains its operations despite challenges or disruptions. They make sure that crucial processes are maintained even when something goes wrong. This involves assessing risks, ensuring systems stay functional, and taking necessary actions to prevent further issues. The goal is to keep the bank safe and sound through proper business continuity measures.
+</think>
+
+The Board plays a critical role in business continuity and disaster recovery planning by overseeing the Bank's operations under various scenarios of disruption. Their responsibilities include maintaining operational resilience, ensuring key processes remain functional during challenges, and taking corrective actions to mitigate risks. This ensures that the Bank can continue performing safely even when disruptions occur.
+
+Ask a question about the document (or type 'exit' to quit): What policy must the Board establish to prevent undue influence from any director or group of directors?
+
+
+Response:
+ <think>
+Alright, let me figure out how to approach this. So, the user provided a context and a question about the policy the Board must establish to prevent undue influence.
+
+First, I need to go through the given context carefully. The question is asking for the specific policy mentioned in option d). Let me look at that part again.     
+
+The context says: "the Board shall approve and oversee the implementation of a policy to identify and manage conflicts of interests, which shall include: (i) a Board member’s duty to promptly disclose any matter that may result, or has already resulted, in a conflict of interest; (ii) a Board member’s duty to avoid, to the extent possible, activities that could create conflicts of interest or the potential conflicts of interest including political affiliations."
+
+So, looking at options c and d. Option c talks about ensuring that directors don't become overly familiar with each other or between themselves and key management personnel. Option d is about implementing a policy to identify and manage conflicts of interests.
+
+Wait, the context says the Board must implement option d). So that's what the user is asking for in their question. The answer would be option d as per the provided context.
+</think>
+
+The document-based question asks: "What policy must the Board establish to prevent undue influence from any director or group of directors?"
+
+To find the answer, I refer back to the given context:
+
+- **Option c** focuses on preventing excessive familiarity among directors and key management personnel.
+- **Option d** discusses implementing a policy (as described) to identify and manage conflicts of interest.
+
+The context explicitly mentions that option d) is the policy the Board must approve. Therefore, the answer is:
+
+**d) The Board shall approve and oversee the implementation of a policy to identify and manage conflicts of interests, which shall include: (i) a Board member’s duty to promptly disclose any matter that may result, or has already resulted, in a conflict of interest; (ii) a Board member’s duty to avoid, to the extent possible, activities that could create conflicts of interest or the potential conflicts of interest including political affiliations.**
+
+**Answer:** The Board must establish policy d).
+
+Ask a question about the document (or type 'exit' to quit): What are the composition requirements for the Audit Committee under the Banking Act Directions?
+
+Response:
+ <think>
+Okay, I need to figure out what the composition requirements are for the Audit Committee under the Banking Act Directions. Let me start by going through the context provided.
+
+First, looking at point k, it says that the Committee reviews the external auditor's management letter and their response. Point l mentions taking steps regarding internal audit functions. The committee also has specific member requirements outlined in points c to i, j, k, etc.
+
+Looking closer, under point d, it states that the majority of the members should not be from the Integrated Risk Management Committee or vice versa. So the Audit Committee must have a balanced mix where there are contributions from both areas, but importantly, they can't just all come from one group.
+
+Additionally, in point f, there's a note about policy development regarding non-audit services. But that seems more about what happens once the committee is formed rather than composition requirements right now.
+
+In section 2.7, it mentions that at least half of the Board members need to be quorum for Board meetings. This implies a majority requirement, but I think the key point here is from point d that there shouldn't be an equal or more proportion from one area.
+
+Putting this together, the Audit Committee must have a composition where there are both people from finance and accounting, ensuring diversity in expertise and not just one group.
+</think>
+
+The Audit Committee must meet the following composition requirements:
+
+1. **Balanced Expertise**: The committee should include members with expertise in finance and accounting, reflecting their roles within banking regulations. This ensures that diverse perspectives are represented.
+
+2. **Diversity of Group Members**: There should be a balance between individuals from both financial areas (finance) and management areas (accounting). It is crucial that neither the committee nor its members are entirely composed by the members of the Integrated Risk Management Committee or vice versa.
+
+3. **Majority Requirement**: The majority of the Audit Committee must not be composed solely by members from either the finance or accounting sector, adhering to a balanced and representative composition.
+
+These requirements ensure the committee's effective oversight while maintaining a suitable mix of skills and expertise.
+
+Ask a question about the document (or type 'exit' to quit): What is the role and independence requirement of the Chief Risk Officer (CRO)?
+
+Response:
+ <think>
+Okay, so I need to figure out the role and independence requirements of the Chief Risk Officer (CRO) based on the provided context. Let me read through it carefully.
+
+First, the context mentions that every licensed bank has an independent risk management function. This function is set up in addition to other functions like the Integrated Risk Management Committee.
+
+Then, there are several points about the CRO:
+
+1. The CRO must be a member of key management personnel and, for D-SIBs, in the immediate layer below the CEO.
+2. The CRO needs sufficient independence, knowledge, skills, and expertise in risk management.
+3. The CRO should hold such a position under Section 44A and 76H of the Banking Act.
+4. The CRO must be independent from other bank executive functions.
+5. The CCO's main responsibility is managing compliance risks.
+6. The CCO needs to communicate compliance risk information clearly and engage the Board, Integration Risk Mgt Committee, and key management personnel.
+
+Looking back at point 7, it says that the CRO also has to implement the integrated framework approved by the board. That includes things like setting up policies, processes, assessing exposures, reviewing risk appetite, using stress testing, and implementing risk mitigation methods.
+
+egral part of the Risk Management Function. Their primary responsibilities include:
+
+1. **Role**: The CRO manages and identifies risks within the bank, focusing on compliance-related risks. They ensure that internal controls are effective in mitigating these risks and maintain risk quality.
+
+2. **Independence Requirements**:
+   - Sufficient independence to operate without direct management or financial responsibility tied to specific business lines.
+   - Must adhere to Section 44A and 76H of the Banking Act, maintaining independence from other bank functions.
+   - Be an integral part of the bank's structure, with a role in identifying and mitigating risks across all areas.
+
+The CRO's responsibilities include implementing the integrated risk management framework approved by the Board, encompassing policies, processes, risk assessment, compliance monitoring, stress testing, and effective risk control.
+
+Ask a question about the document (or type 'exit' to quit):
